@@ -1,9 +1,3 @@
-<?php
-    echo "Hello World";
-    include_once 'dbh.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-<?php
+<form action="signup.php" method="POST">
+    <input type="text" name="name" placeholder="Name">
+    <br>
+    <input type="text" name="year" placeholder="Year">
+    <br>
+    <input type="text" name="section" placeholder="Section">
+    <br>
+    <input type="text" name="email" placeholder="E-mail">
+    <br>
+    <input type="password" name="password" placeholder="Password">
+    <br>
+    <input type="text" name="vote_status" placeholder="Vote status">
+    <br>
+    <button type="submit">Signup</button> 
 
-    $sql = "SELECT * FROM stud_info;";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if ($resultCheck > 0) {
-        //Showing data from the database
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo $row['name'];
-        }
-    }
-
-?>
-
+</form>
 
 </body>
 </html>
