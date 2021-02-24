@@ -7,22 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-<form action="signup.php" method="POST">
-    <input type="text" name="name" placeholder="Name">
+
+<?php require_once 'methods.php'; ?>
+
+<form method="POST">
+    <input type="text" name="FirstName" placeholder="FirstName">
     <br>
-    <input type="text" name="year" placeholder="Year">
+    <input type="text" name="LastName" placeholder="Lastname">
     <br>
-    <input type="text" name="section" placeholder="Section">
+    <input type="text" name="studentID" placeholder="studentID">
     <br>
-    <input type="text" name="email" placeholder="E-mail">
-    <br>
-    <input type="password" name="password" placeholder="Password">
-    <br>
-    <input type="text" name="vote_status" placeholder="Vote status">
-    <br>
-    <button type="submit">Signup</button> 
+  
+    <button type="submit" name="insert-btn">Signup</button> 
 
 </form>
+
+
+<form method="POST">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Student ID</th>
+        </tr>
+        <?php
+        include_once "showdata.php";
+        ?>
+        
+
+    </table>
+</form>
+
 
 </body>
 </html>
