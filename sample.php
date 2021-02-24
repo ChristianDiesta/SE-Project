@@ -11,6 +11,9 @@
 <?php require_once 'methods.php'; ?>
 
 <form method="POST">
+
+    <input type="hidden" name="id" value="<?php echo $id ?>">
+
     <input type="text" name="FirstName" placeholder="FirstName">
     <br>
     <input type="text" name="LastName" placeholder="Lastname">
