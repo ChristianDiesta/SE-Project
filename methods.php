@@ -2,22 +2,26 @@
 
 include_once 'dbh.php';
 
-
-$firstname = '';
-$lastname = '';
-$studentID = '';
+$name = '';
+$gender = '';
+$email = '';
+$password = '';
+$voting_status = '';
 $update = false;
-$id = 0;
+$student_id = 0;
 
     /* Insert or  Add Button Handler */
     if (isset($_POST['insert-btn'])) {
      
 
-        $firstname = $_POST['FirstName'];
-        $lastname = $_POST['LastName'];
-        $studentID = $_POST['StudentID'];
+       
+        $name = $_POST['name'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $voting_status = $_POST['voting_status'];
    
-        $sql_insert = "INSERT INTO stud_info (FirstName, LastName, StudentID) VALUES ('$firstname', '$lastname', '$studentID')";
+        $sql_insert = "INSERT INTO student (name, gender, email, password, voting_status) VALUES ('$name', '$gender', '$email', '$password', '$voting_status')";
    
         mysqli_query($conn, $sql_insert);
    
@@ -28,7 +32,7 @@ $id = 0;
     //OPTIONAL (Kung merong delete button)
     if(isset($_GET['delete'])){
         $id = $_GET['delete'];
-        $sql_delete = "DELETE FROM stud_info WHERE id=$id";
+        $sql_delete = "DELETE FROM student WHERE student_id=$student_id";
 
         mysqli_query($conn, $sql_delete);
     }
@@ -38,16 +42,17 @@ $id = 0;
         $id = $_GET['edit'];
         $update = true;
 
-        $sql_edit = "SELECT * FROM stud_info WHERE id=$id";
+        $sql_edit = "SELECT * FROM student WHERE student_id=$student_id";
 
         $result = mysqli_query($conn, $sql_edit);
         if(count($result)==1){
             $row = mysqli_fetch_array($result);
 
-            /* Mga variables na di ko pa sure */
-            $firstname = $row['FirstName'];
-            $lastname = $row['LastName'];
-            $studentID = $row['StudentID'];
+            $name = $_POST['name'];
+            $gender = $_POST['gender'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $voting_status = $_POST['voting_status'];
 
         }
 
@@ -55,15 +60,21 @@ $id = 0;
 
     /* Update Button Handler */
     if(isset($_POST['update'])) {
-        $id = $_POST['id'];
-        $firstname = $_POST['FirstName'];
-        $lastname = $_POST['LastName'];
-        $studentID = $_POST['StudentID'];
+        
+        $student_id = $_POST['student_id'];
+        $name = $_POST['name'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $voting_status = $_POST['voting_status'];
 
-        $sql_update = "UPDATE stud_info SET FirstName='$firstname', 
-        LastName='$lastname', 
-        StudentID='$studentID' 
-        WHERE id=$id";
+        $sql_update = "UPDATE student SET 
+        name = '$name', 
+        gender = '$gender', 
+        email = '$email'
+        password = '$password', 
+        voting_status = '$voting_status' 
+        WHERE student_id = $student_id";
 
         mysqli_query($conn, $sql_update);
     }

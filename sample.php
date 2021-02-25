@@ -14,13 +14,25 @@
 
     <input type="hidden" name="id" value="<?php echo $id ?>">
 
-    <input type="text" name="FirstName" placeholder="FirstName">
+    <input type="text" name="name" placeholder="Name">
     <br>
-    <input type="text" name="LastName" placeholder="Lastname">
+    
+    Gender: 
+    <input type="radio" name="gender" value="Female">Female
+    <input type="radio" name="gender" value="Male">Male
     <br>
-    <input type="text" name="studentID" placeholder="studentID">
+
+    <input type="text" name="email" placeholder="Email">
     <br>
-  
+    <input type="text" name="password" placeholder="Password">
+    <br>
+    
+    Voting Status: 
+    <input type="radio" name="voting_status" value="Yes">Yes
+    <input type="radio" name="voting_status" value="No">No
+    <br>
+    
+
     <button type="submit" name="insert-btn">Signup</button> 
 
 </form>
@@ -29,9 +41,11 @@
 <form method="POST">
     <table>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Student ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Voting_status</th>
         </tr>
         <?php
         include_once "showdata.php";
