@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sample Interface</title>
 </head>
 <body>
 
@@ -30,8 +30,8 @@
     Voting Status: 
     <input type="radio" name="voting_status" value="Yes">Yes
     <input type="radio" name="voting_status" value="No">No
-    <br>
-    
+    <br>    
+
 
     <button type="submit" name="insert-btn">Signup</button> 
 
@@ -54,6 +54,7 @@
 
     </table>
 </form>
+
 
 
 </body>
